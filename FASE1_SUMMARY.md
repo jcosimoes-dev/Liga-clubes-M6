@@ -187,3 +187,4 @@ FASE 2: Interface de Utilizador (UI)
 - Formulários e validações
 
 **NOTA**: Não avançar para UI até validar que FASE 1 está 100% funcional!
+text export
