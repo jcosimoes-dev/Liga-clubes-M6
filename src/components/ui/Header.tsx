@@ -4,20 +4,11 @@ interface HeaderProps {
 
 export function Header({ title }: HeaderProps) {
   return (
-    <header className="bg-gradient-to-b from-emerald-700 to-emerald-600 shadow-md">
-      <div className="px-6 py-4">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-base opacity-80">🎾</span>
-          <h1 className="text-base font-bold text-white tracking-wide">
-            Equipa M6 APC Nome Patrocínio
-          </h1>
-        </div>
-
-        <div className="h-px bg-white/25 mb-3" />
-
-        <h2 className="text-2xl font-semibold text-white leading-tight">
+    <header className="bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 shadow-md">
+      <div className="px-6 py-5">
+        <h1 className="text-xl font-bold text-white tracking-tight">
           {title}
-        </h2>
+        </h1>
       </div>
     </header>
   );
