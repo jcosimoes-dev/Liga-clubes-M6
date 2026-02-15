@@ -171,7 +171,7 @@ export const GamesService = {
     });
 
     const roundName = this.formatRoundName(game.round_number);
-    let message = `🎾 *Equipa M6 APC Nome Patrocínio - ${roundName}*\n\n`;
+    let message = `🎾 *Equipa M6 APC TRABLISA - ${roundName}*\n\n`;
     message += `📅 ${dateStr}\n`;
     message += `⏰ ${timeStr}\n`;
     message += `🏟️ ${game.location}\n`;

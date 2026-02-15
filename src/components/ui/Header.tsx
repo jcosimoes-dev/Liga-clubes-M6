@@ -9,7 +9,7 @@ export function Header({ title }: HeaderProps) {
         <div className="flex items-center gap-2 mb-2">
           <span className="text-base opacity-80">🎾</span>
           <h1 className="text-base font-bold text-white tracking-wide">
-            Equipa M6 APC Nome Patrocínio
+            Equipa M6 APC TRABLISA
           </h1>
         </div>
 

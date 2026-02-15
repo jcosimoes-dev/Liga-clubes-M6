@@ -4,10 +4,11 @@ type Route =
   | { name: 'login' }
   | { name: 'register' }
   | { name: 'bootstrap' }
+  | { name: 'complete-profile' }
   | { name: 'home' }
   | { name: 'calendar' }
   | { name: 'history' }
-  | { name: 'game', params: { id: string } }
+  | { name: 'game'; params: { id: string } }
   | { name: 'team' }
   | { name: 'admin' };
 
@@ -21,7 +22,7 @@ const NavigationContext = createContext<NavigationContextType | null>(null);
 function parseHash(hash: string): Route {
   if (!hash || hash === '#') return { name: 'home' };
 
-  const path = hash.substring(1);
+  const path = hash.startsWith('#') ? hash.substring(1) : hash;
   const [routeName, ...params] = path.split('/');
 
   switch (routeName) {
@@ -31,6 +32,8 @@ function parseHash(hash: string): Route {
       return { name: 'register' };
     case 'bootstrap':
       return { name: 'bootstrap' };
+    case 'complete-profile':
+      return { name: 'complete-profile' };
     case 'home':
       return { name: 'home' };
     case 'calendar':
@@ -56,6 +59,8 @@ function routeToHash(route: Route): string {
       return '#register';
     case 'bootstrap':
       return '#bootstrap';
+    case 'complete-profile':
+      return '#complete-profile';
     case 'home':
       return '#home';
     case 'calendar':
@@ -68,6 +73,8 @@ function routeToHash(route: Route): string {
       return '#team';
     case 'admin':
       return '#admin';
+    default:
+      return '#home';
   }
 }
 
@@ -76,10 +83,7 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const handleHashChange = () => {
-      console.log('[NavigationContext] hashchange detectado:', window.location.hash);
-      const route = parseHash(window.location.hash);
-      console.log('[NavigationContext] Rota parseada:', route);
-      setCurrentRoute(route);
+      setCurrentRoute(parseHash(window.location.hash));
     };
 
     window.addEventListener('hashchange', handleHashChange);
@@ -87,11 +91,8 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const navigate = (route: Route) => {
-    console.log('[NavigationContext] navigate chamado com:', route);
     const hash = routeToHash(route);
-    console.log('[NavigationContext] Hash gerado:', hash);
     window.location.hash = hash;
-    console.log('[NavigationContext] window.location.hash definido:', window.location.hash);
   };
 
   return (
@@ -103,8 +104,6 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
 
 export function useNavigation() {
   const context = useContext(NavigationContext);
-  if (!context) {
-    throw new Error('useNavigation must be used within NavigationProvider');
-  }
+  if (!context) throw new Error('useNavigation must be used within NavigationProvider');
   return context;
 }

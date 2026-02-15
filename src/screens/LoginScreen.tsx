@@ -41,7 +41,7 @@ export function LoginScreen() {
             <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
               <User className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">🎾 Equipa M6 APC Nome Patrocínio</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">🎾 Equipa M6 APC TRABLISA</h1>
             <p className="text-lg text-gray-600">Gestão da equipa e dos jogos</p>
           </div>
 

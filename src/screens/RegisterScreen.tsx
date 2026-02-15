@@ -82,7 +82,7 @@ export function RegisterScreen() {
           <div className="w-full max-w-md">
             <div className="text-center mb-8">
               <h1 className="text-3xl font-bold text-gray-900 mb-2">Criar Conta</h1>
-              <p className="text-gray-600">Junte-se à 🎾 Equipa M6 APC Nome Patrocínio</p>
+              <p className="text-gray-600">Junte-se à 🎾 Equipa M6 APC TRABLISA</p>
             </div>
 
             <Card>
